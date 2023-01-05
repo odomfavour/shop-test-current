@@ -7,7 +7,7 @@
 <template>
   <div>
     <main-header :cartCount="getCart" />
-    <div class="w-11/12 mx-auto mt-5">
+    <div class="w-11/12 mx-auto mt-[100px]">
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
         <div
           className="border rounded-md drop-shadow-lg px-4 pt-4 pb-20 text-center gap-3 bg-white relative"
@@ -62,8 +62,7 @@ export default {
     // HelloWorld
   },
   computed: {
-    ...mapGetters(["products"]),
-    ...mapGetters(["getCart", "GET_TOTALS"]),
+    ...mapGetters(["products", "getCart", "GET_TOTALS"]),
     ...mapState(["cartActive"]),
   },
   methods: {

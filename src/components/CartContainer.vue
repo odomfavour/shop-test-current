@@ -31,7 +31,7 @@
     <hr />
     <div className="cart-parent">
       <div v-if="cart.length > 0">
-        <section>
+        <section class="h-[60vh] overflow-y-scroll">
         <div className="cart-holder" v-for="item in cart" :key="item.id">
           <div className="flex justify-between items-center gap-3 mb-3">
             <div className="w-[25%]">
