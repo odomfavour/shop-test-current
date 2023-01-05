@@ -8,6 +8,7 @@ export default createStore({
     Error: null,
     cartActive: null,
     totalAmount: 0,
+    isLoading: false
   },
   getters: {
     products(state) {
@@ -79,8 +80,9 @@ export default createStore({
     },
   },
   actions: {
-    async fetchAllProducts({ commit }) {
+    async fetchAllProducts({ commit, state }) {
       try {
+        state.isLoading = true
         const data = await axios.get("https://fakestoreapi.com/products", {
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -88,6 +90,7 @@ export default createStore({
           },
         });
         commit("setProducts", data.data);
+        state.isLoading = false
       } catch (error) {
         console.error(error);
       }

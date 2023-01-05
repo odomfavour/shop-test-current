@@ -7,6 +7,12 @@
 <template>
   <div>
     <main-header :cartCount="getCart" />
+    <div v-if="isLoading" class="h-[80vh] flex justify-center items-center">
+      <div class="text-center">
+        <img src="../assets/loading.gif" alt="">
+        <p class="mt-4 text-blue-700">Loading</p>
+      </div>
+    </div>
     <div class="w-11/12 mx-auto mt-[100px]">
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
         <div
@@ -63,7 +69,7 @@ export default {
   },
   computed: {
     ...mapGetters(["products", "getCart", "GET_TOTALS"]),
-    ...mapState(["cartActive"]),
+    ...mapState(["cartActive", "isLoading"]),
   },
   methods: {
     ...mapActions(["fetchAllProducts", "addToCart"]),
