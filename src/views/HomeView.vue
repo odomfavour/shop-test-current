@@ -22,7 +22,7 @@
           <p className="mt-5 text-base text-center">
             {{ product.title.substring(0, 30) }}
           </p>
-          <p>{{ product.price }}</p>
+          <p>${{ product.price }}</p>
           <p>{{ product.rating.rate }}</p>
           <div className="flex justify-end mt-3 absolute bottom-3 right-3">
             <button
