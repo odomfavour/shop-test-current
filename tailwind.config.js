@@ -2,7 +2,11 @@
 module.exports = {
     content: ["./src/**/*.{vue,html,js}"],
     theme: {
-      extend: {},
+      extend: {
+        fontFamily: {
+          'poppins': ['Poppins', 'Sans-serif']
+        }
+      },
     },
     plugins: [],
   }

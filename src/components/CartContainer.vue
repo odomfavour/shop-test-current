@@ -16,6 +16,7 @@
       px-6
       overflow-y-auto
       border-l-red-500
+      font-poppins
     "
   >
     <div className="flex items-center justify-between mt-8 mb-3">
@@ -50,12 +51,11 @@
             <div className="w-[73%]">
               <div className="flex flex-col md:flex-row">
                 <div className="md:w-2/3 w-full">
-                  <p className="text-sm">{{item.rating.rate}}</p>
                   <h4 className="md:text-xl text-base font-semibold">
                     {{item.title}}
                   </h4>
                   <p className="text-base">${{item.price}}</p>
-                  <button @click="removeItem(item.id)" class="rounded-md bg-red-400 p-2">Remove</button>
+                  <button @click="removeItem(item.id)" class="rounded-md bg-red-400 p-2 text-white">Remove</button>
                 </div>
                 <div
                   className="flex items-center justify-between md:w-1/3 w-2/3 pr-3"

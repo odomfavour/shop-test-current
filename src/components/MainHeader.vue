@@ -2,7 +2,7 @@
   <section class="fixed top-0 z-40 w-full bg-white shadow-lg shadow-gray-500/30" >
     <div class="w-11/12 mx-auto">
       <div class="flex justify-between py-3 items-center">
-        <h3 class="text-blue-500 font-semibold text-3xl">Shop</h3>
+        <h3 class="text-blue-500 font-semibold text-3xl font-poppins">Shop</h3>
         <ul class="flex">
           <li class="mr-4 relative">
             <button @click="openCart">
