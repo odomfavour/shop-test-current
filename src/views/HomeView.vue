@@ -13,7 +13,7 @@
         <p class="mt-4 text-blue-700">Loading</p>
       </div>
     </div>
-    <div class="w-11/12 mx-auto mt-[100px] font-poppins">
+    <div class="w-11/12 mx-auto my-[100px] font-poppins" v-else>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
         <div
           className="border rounded-md drop-shadow-lg px-4 pt-4 pb-20 gap-3 bg-white relative"
@@ -51,7 +51,7 @@
             </button> -->
             <button
               className="p-3 border-2 border-solid rounded-lg bg-gray-50 border-red-900 text-red-800"
-              @click="addToCart(product.id)"
+              @click="addToCart(product)"
             >
               <BIconCart4 />
             </button>
@@ -60,7 +60,7 @@
       </div>
     </div>
     <cart-container :cart="getCart" :cartTotal="GET_TOTALS" v-if="cartActive" />
-    <modal-panel v-if="isModalActive" :productId="currentItem"/>
+    <modal-panel v-if="isModalActive" :productId="currentItem" />
   </div>
 </template>
 
@@ -80,13 +80,13 @@ export default {
     ModalPanel,
   },
   computed: {
-    ...mapGetters(["products", "getCart", "GET_TOTALS"]),
+    ...mapGetters(["products", "getCart", "GET_TOTALS", "user"]),
     ...mapState(["cartActive", "isLoading", "isModalActive", "currentItem"]),
   },
   methods: {
     ...mapActions(["fetchAllProducts", "addToCart"]),
     addToCart(productId) {
-      this.$store.commit("addToCart", productId);
+      this.$store.dispatch("addToCart", productId);
     },
     removeItem(productId) {
       this.$store.commit("REMOVE_ITEM", productId);
@@ -96,6 +96,13 @@ export default {
     },
     roundRating(rate) {
       return Math.round(rate);
+    },
+  },
+  watch: {
+    user(value) {
+      if (value !== null && value !== undefined) {
+        console.log(value);
+      }
     },
   },
   created() {

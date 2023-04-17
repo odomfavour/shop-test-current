@@ -90,8 +90,8 @@
           </div>
           <div>
             <button
-              to="#"
               className="md:px-10 px-5 py-3 bg-red-900 text-white rounded-md flex items-center justify-center font-semibold"
+              @click="checkout"
             >
               Checkout
             </button>
@@ -128,6 +128,9 @@ export default {
     },
     removeItem(productId) {
       this.$store.commit('REMOVE_ITEM', productId)
+    },
+    checkout() {
+      this.$store.commit('CHECKOUT_ITEMS')
     }
   }
 };
